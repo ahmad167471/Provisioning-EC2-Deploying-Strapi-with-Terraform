@@ -78,45 +78,44 @@ Update system packages
 
 Create a Strapi project using SQLite quickstart
 
-🌐 Access Strapi
+###Access Strapi
 
-After deployment:
-
-http://http://13.201.9.171:1337/admin:1337
+After deployment: http://http://13.201.9.171:1337/admin:1337
 
 Follow the Strapi wizard to create an admin account.
+---
 
-###⚠️ Challenges & Solutions
-1. Node.js Version Compatibility
+## Challenges & Solutions
+##1. Node.js Version Compatibility
 
-Strapi v5 requires Node.js >=20.0.0 <=24.x.x.
+   Strapi v5 requires Node.js >=20.0.0 <=24.x.x.
 
-Initially, Node.js v18 was installed, causing errors.
+   Initially, Node.js v18 was installed, causing errors.
 
-Solution: Updated user_data.sh to install Node.js v20.x from NodeSource.
+   Solution: Updated user_data.sh to install Node.js v20.x from NodeSource.
 
-2. EC2 Instance Size
+##2. EC2 Instance Size
 
-Initially used t3.small.
+  Initially used t3.small.
 
-Issue: Strapi setup failed due to insufficient memory.
+  Issue: Strapi setup failed due to insufficient memory.
 
-Solution: Upgraded to t3.medium (2 vCPU, 4GB RAM), which resolved memory issues.
+  Solution: Upgraded to t3.medium (2 vCPU, 4GB RAM), which resolved memory issues.
 
-3. Yarn & npm Global Dependencies
+##3. Yarn & npm Global Dependencies
 
-npm version conflicted with Strapi requirements.
+   npm version conflicted with Strapi requirements.
 
-Solution: Installed Yarn globally and ensured npm was updated to a compatible version.
+   Solution: Installed Yarn globally and ensured npm was updated to a compatible version.
 
-4. Protected Packages on Amazon Linux
+##4. Protected Packages on Amazon Linux
 
-Attempted removal of curl-minimal caused grub2-efi-x64-ec2 errors.
+   Attempted removal of curl-minimal caused grub2-efi-x64-ec2 errors.
 
-Solution: Avoid removing essential OS packages; install dependencies with yum install.
+   Solution: Avoid removing essential OS packages; install dependencies with yum install.
 
-5. Security Considerations
+##5. Security Considerations
 
-SSH (22) should only be open to trusted IPs.
+   SSH (22) should only be open to trusted IPs.
 
-Strapi (1337) can be restricted via firewall or VPC security rules for production.
+   Strapi (1337) can be restricted via firewall or VPC security rules for production.
